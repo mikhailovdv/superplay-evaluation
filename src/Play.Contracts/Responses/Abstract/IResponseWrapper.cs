@@ -1,8 +1,8 @@
 ﻿namespace Play.Contracts.Responses.Abstract;
 
-public interface IResponseWrapper<TResponse>
+public interface IResponseWrapper<out TResponse>
 {
-    string Type { get; init; }
+    string Type { get; }
     
-    TResponse Payload { get; init; }
+    TResponse Payload { get; }
 }

@@ -4,9 +4,9 @@ namespace Play.Contracts.Responses.Abstract;
 
 public abstract record ResponseWrapper<TResponse> : IResponseWrapper<TResponse>
 {
-    public string Type { get; init; }
+    public string Type { get; }
     
-    public TResponse Payload { get; init; }
+    public TResponse Payload { get; }
 
     [JsonConstructor]
     protected ResponseWrapper(
