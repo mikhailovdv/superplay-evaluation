@@ -10,4 +10,8 @@
         <Version>0.1.0</Version>
     </PropertyGroup>
 
+    <ItemGroup>
+      <Folder Include="Responses\Payloads\Bad\" />
+    </ItemGroup>
+
 </Project>
