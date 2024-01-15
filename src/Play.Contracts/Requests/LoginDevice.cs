@@ -16,5 +16,5 @@ public record LoginDevice : RequestWrapper<LoginDevicePayload>
     
     public LoginDevice(
         string currentDeviceUDID)
-        : this(TypeValue, new LoginDevicePayload(currentDeviceUDID)) { }
+        : this(TypeValue, LoginDevicePayload.From(currentDeviceUDID)) { }
 }

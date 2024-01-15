@@ -1,19 +1,18 @@
-﻿using System.Text.Json.Serialization;
-using Play.Contracts.Requests.Payloads.Primitives;
+﻿using Play.Contracts.Requests.Payloads.Primitives;
 
 namespace Play.Contracts.Requests.Payloads;
 
 public record SendGiftPayload : UpdateResourcePayload
 {
-    public long RecipientPlayerId { get; }
+    public long RecipientPlayerId { get; init; }
 
-    [JsonConstructor]
-    public SendGiftPayload(
+    public static SendGiftPayload From(
         long recipientPlayerId,
         ResourceType type,
         int value)
-        : base(type, value)
-    {
-        RecipientPlayerId = recipientPlayerId;
-    }
+        => new () {
+            RecipientPlayerId = recipientPlayerId,
+            Type = type,
+            Value = value
+        };
 }

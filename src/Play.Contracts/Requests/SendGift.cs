@@ -19,5 +19,5 @@ public record SendGift : RequestWrapper<SendGiftPayload>
         long recipientPlayerId,
         ResourceType type,
         int value)
-        : this(TypeValue, new SendGiftPayload(recipientPlayerId, type, value)) { }
+        : this(TypeValue, SendGiftPayload.From(recipientPlayerId, type, value)) { }
 }

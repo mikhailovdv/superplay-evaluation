@@ -1,20 +1,18 @@
-﻿using System.Text.Json.Serialization;
-using Play.Contracts.Requests.Payloads.Primitives;
+﻿using Play.Contracts.Requests.Payloads.Primitives;
 
 namespace Play.Contracts.Requests.Payloads;
 
 public record UpdateResourcePayload : IRequestPayload
 {
-    public ResourceType Type { get; }
+    public ResourceType Type { get; init; }
     
-    public int Value { get; }
+    public int Value { get; init; }
 
-    [JsonConstructor]
-    public UpdateResourcePayload(
+    public static UpdateResourcePayload From(
         ResourceType type,
         int value)
-    {
-        Type = type;
-        Value = value;
-    }
+        => new () {
+            Type = type,
+            Value = value
+        };
 }

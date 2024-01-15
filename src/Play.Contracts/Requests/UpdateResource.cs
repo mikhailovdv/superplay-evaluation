@@ -18,5 +18,5 @@ public record UpdateResource : RequestWrapper<UpdateResourcePayload>
     public UpdateResource(
         ResourceType type,
         int value)
-        : this(TypeValue, new UpdateResourcePayload(type, value)) { }
+        : this(TypeValue, UpdateResourcePayload.From(type, value)) { }
 }

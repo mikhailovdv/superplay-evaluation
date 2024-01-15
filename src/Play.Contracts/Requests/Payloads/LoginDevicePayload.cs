@@ -1,15 +1,12 @@
-﻿using System.Text.Json.Serialization;
-
-namespace Play.Contracts.Requests.Payloads;
+﻿namespace Play.Contracts.Requests.Payloads;
 
 public record LoginDevicePayload : IRequestPayload
 {
-    public string CurrentDeviceUDID { get; }
+    public string CurrentDeviceUDID { get; init; }
 
-    [JsonConstructor]
-    public LoginDevicePayload(
+    public static LoginDevicePayload From(
         string currentDeviceUDID)
-    {
-        CurrentDeviceUDID = currentDeviceUDID;
-    }
+        => new () {
+            CurrentDeviceUDID = currentDeviceUDID
+        };
 }
