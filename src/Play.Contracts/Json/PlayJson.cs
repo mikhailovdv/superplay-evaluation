@@ -11,7 +11,8 @@ public class PlayJson : IPlayJson
         = new() {
             PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
             PropertyNameCaseInsensitive = true,
-            Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
+            Encoder = JavaScriptEncoder.Default,
+            ReferenceHandler = ReferenceHandler.IgnoreCycles,
             Converters = {
                 new JsonStringEnumConverter(JsonNamingPolicy.CamelCase)
             }

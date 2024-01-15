@@ -37,7 +37,7 @@ internal abstract class BaseJsonConverter<T> : JsonConverter<T>
             writer.WriteNullValue();
         }
         else {
-            JsonSerializer.Serialize(writer, value, options);
+            JsonSerializer.Serialize(writer, value);
         }
     }
 }
