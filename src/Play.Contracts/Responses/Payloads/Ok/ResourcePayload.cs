@@ -7,4 +7,12 @@ public record ResourcePayload : IResponsePayload
     public ResourceType Type { get; init; }
     
     public int Value { get; init; }
+    
+    public static ResourcePayload From(
+        ResourceType type,
+        int value)
+        => new () {
+            Type = type,
+            Value = value
+        };
 }
