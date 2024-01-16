@@ -1,6 +1,7 @@
 ﻿using System.Collections.Concurrent;
 using Play.Core;
 using Play.Core.Domain;
+using Play.Core.Domain.Abstract;
 
 namespace Play.Persistence;
 

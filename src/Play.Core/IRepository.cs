@@ -1,4 +1,5 @@
 ﻿using Play.Core.Domain;
+using Play.Core.Domain.Abstract;
 
 namespace Play.Core;
 
