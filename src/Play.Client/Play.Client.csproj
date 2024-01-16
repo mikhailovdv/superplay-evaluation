@@ -15,4 +15,15 @@
       <ProjectReference Include="..\Play.Contracts\Play.Contracts.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Reference Include="Play.Contracts">
+        <HintPath>..\..\tests\Play.Contracts.Tests\bin\Debug\net6.0\Play.Contracts.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Serilog" Version="3.1.1" />
+      <PackageReference Include="Serilog.Sinks.Console" Version="5.0.1" />
+    </ItemGroup>
+
 </Project>
