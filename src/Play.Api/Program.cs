@@ -1,5 +1,9 @@
 using Play.Api.WebSocketApi;
+using Serilog;
 
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.Console()
+    .CreateLogger();
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddTransient<PlayWebSocketMiddleware>();
