@@ -2,7 +2,9 @@
 
 namespace Play.Core.Domain;
 
-public record Player(long PlayerId, Dictionary<ResourceType, int> Resources)
+public record Player(
+    long PlayerId,
+    Dictionary<ResourceType, int> Resources)
     : IEntity<long>
 {
     public long Id => PlayerId;
