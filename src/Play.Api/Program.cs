@@ -1,4 +1,6 @@
 using Play.Api.WebSocketApi;
+using Play.Core;
+using Play.Persistence;
 using Serilog;
 
 Log.Logger = new LoggerConfiguration()
@@ -6,8 +8,10 @@ Log.Logger = new LoggerConfiguration()
     .CreateLogger();
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddTransient<PlayWebSocketMiddleware>();
+builder.Services.AddRepositories();
+builder.Services.AddServices();
 builder.Services.AddTransient<IPlayApi, PlayApi>();
+builder.Services.AddTransient<PlayWebSocketMiddleware>();
 builder.WebHost.UseUrls(
     builder.Configuration.GetSection("ApiSettings:Url").Value);
 
