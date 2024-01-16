@@ -6,6 +6,8 @@ namespace Play.Contracts.Extensions;
 
 public static class PlayWebSocketExtensions
 {
+    private const int ContentBufferSize
+        = 4096;
     private static readonly IPlayJson Json
         = new PlayJson()
             .WithPlayRequestJsonConverter()
@@ -31,13 +33,11 @@ public static class PlayWebSocketExtensions
         CancellationToken ct)
     {
         try {
-            const int bufferSize = 4096;
-            var buffer = new byte[bufferSize];
+            var buffer = new byte[ContentBufferSize];
             while(socket.State is WebSocketState.Open)
             {
                 var messageWrapper = await ReadAsync(socket, buffer, ct);
                 if (messageWrapper.CloseConnection) {
-                    Console.WriteLine("Disconnecting...");
                     await DisconnectAsync(socket, ct);
                 }
                 else {
