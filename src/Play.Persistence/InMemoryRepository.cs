@@ -1,6 +1,5 @@
 ﻿using System.Collections.Concurrent;
 using Play.Core;
-using Play.Core.Domain;
 using Play.Core.Domain.Abstract;
 
 namespace Play.Persistence;
@@ -11,6 +10,16 @@ public class InMemoryRepository<TEntity, TKey> : IRepository<TEntity, TKey>
 {
     private readonly ConcurrentDictionary<TKey, TEntity> _entities
         = new();
+    
+    public void Init(Dictionary<TKey, TEntity> entities)
+    {
+        _entities.Clear();
+        foreach (var entity in entities)
+        {
+            _entities.TryAdd(entity.Key, entity.Value);
+        }
+    }
+    
     public List<TEntity> List()
     {
         return _entities.Values.ToList();
